@@ -84,7 +84,7 @@
                 <button class="btn-siguiente mt-3 d-none d-md-inline-block" onclick="goToStep(2)">Cotiza ahora</button>
               </div>
             </div>
-
+      
             <!-- Imagen -->
             <div class="col-md-6 text-center">
               <div class="intro-image ms-md-5">
@@ -93,11 +93,14 @@
             </div>
           </div>
         </div>
-
+      
         <!-- Botón fijo solo en mobile -->
         <div class="btn-mobile-fixed d-md-none">
-          <button class="btn-siguiente w-100" onclick="goToStep(2)">Cotiza ahora</button>
+          <button class="btn-siguiente w-100" data-bs-toggle="modal" data-bs-target="#modalTerminos">
+            Cotiza ahora
+          </button>
         </div>
+      
       </div>
 
       <div class="step" data-step="2">
@@ -581,6 +584,34 @@
 
     </main>
   </div>
+
+  <!-- Modal -->
+<div class="modal fade" id="modalTerminos" tabindex="-1" aria-labelledby="modalTerminosLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content rounded-4 p-4">
+
+      <div class="modal-body">
+        <h1>Términos y Condiciones</h1>
+        <small>
+        “Aplican restricciones. Los productos se rigen por los términos y condiciones contratados. Consulta detalles de
+        coberturas, exclusiones y requisitos de contratación en <a href="https://axa.mx/" target="_blank"
+          class="footer-link-2"><b>axa.mx.</b> </a> AXA Seguros S.A. de C.V. con domicilio en Félix
+        Cuevas número 366, piso 3, Colonia Tlacoquemécatl, Alcaldía Benito Juárez, C.P. 03200, en la Ciudad de México,
+        le informa que sus datos personales serán tratados únicamente para los fines de la relación jurídica. Conoce
+        nuestro <a href="https://axa.mx/aviso-de-privacidad" target="_blank" class="footer-link-2"><b>Aviso de
+            Privacidad.”</b></a> </small>
+      </div>
+
+      <div class="modal-footer border-0 p-0 pt-3">
+        <button class="btn-siguiente w-100" onclick="goToStep(2)" data-bs-dismiss="modal">
+          Continuar
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 
   <!-- FOOTER -->
   <footer class="footer text-white text-start py-3 d-none d-md-block">
