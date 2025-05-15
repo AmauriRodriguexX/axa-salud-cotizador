@@ -432,7 +432,7 @@
                 Regresar
               </button>
 
-              <button class="btn-siguiente btn-next-substep" data-next="2" disabled>
+              <button class="btn-siguiente btn-next-substep no-position" data-next="2" disabled>
                 Siguiente
               </button>
             </div>
@@ -484,7 +484,7 @@
                 Regresar
               </button>
 
-              <button class="btn-siguiente btn-next-substep" data-next="3" disabled>
+              <button class="btn-siguiente btn-next-substep no-position" data-next="3" disabled>
                 Siguiente
               </button>
             </div>
@@ -524,10 +524,6 @@
               </label>
             </div>
 
-
-
-
-
             <!-- Botones desktop -->
             <div
               class="botones-accion mt-5 gap-3 d-flex flex-column flex-md-row justify-content-center align-items-stretch align-items-md-center">
@@ -536,7 +532,7 @@
                 Regresar
               </button>
 
-              <button class="btn-siguiente btn-next-substep" data-next="5" disabled>
+              <button class="btn-siguiente btn-next-substep no-position" data-next="5" disabled>
                 Enviar
               </button>
 
@@ -758,12 +754,18 @@
     window.addEventListener('DOMContentLoaded', () => {
       goToStep(1);
 
-      document.querySelectorAll('.btn-next-substep').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const next = parseInt(btn.dataset.next);
-          goToSubStep(next);
-        });
-      });
+      document.querySelectorAll('[data-next]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    // Solo avanza si el botón no está deshabilitado
+    if (btn.disabled) return;
+
+    const next = parseInt(btn.dataset.next);
+    if (!isNaN(next)) {
+      goToSubStep(next);
+    }
+  });
+});
+
     });
   </script>
 
