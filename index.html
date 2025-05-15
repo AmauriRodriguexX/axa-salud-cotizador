@@ -1,0 +1,757 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Axa</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+</head>
+
+<body>
+
+  <!-- NAV MOBILE -->
+  <nav class="nav-mobile d-md-none">
+    <div class="nav-container">
+      <button class="btn-back" aria-label="Volver" onclick="goToPreviousStep()">
+        <span class="material-symbols-outlined">arrow_back</span>
+      </button>
+      <img src="assets/logo-axa.png" alt="AXA Logo" class="logo-mobile">
+    </div>
+    <div class="progress-bar-container">
+      <div class="progress-bar-fill" id="progressBar"></div>
+    </div>
+  </nav>
+
+  <!-- LAYOUT: SIDEBAR + MAIN -->
+  <div class="layout-wrapper d-flex flex-row flex-grow-1">
+
+    <!-- SIDEBAR (solo desktop) -->
+    <div class="sidebar d-none d-md-block">
+      <div class="text-center pt-4 pb-3">
+        <img src="assets/logo-axa.png" alt="AXA Logo" class="img-fluid mt-60 logo-sidebar">
+      </div>
+      <ul class="nav flex-column sidebar-nav" id="sidebarNav">
+        <li class="nav-item mb-3">
+          <a href="#" class="nav-link" data-step="1">
+            <span class="material-symbols-outlined icon-status">check_circle</span>
+            <span class="nav-label">Introducción</span>
+          </a>
+        </li>
+        <li class="nav-item mb-3">
+          <a href="#" class="nav-link" data-step="2">
+            <span class="material-symbols-outlined icon-status">check_circle</span>
+            <span class="nav-label">Tipo de protección</span>
+          </a>
+        </li>
+        <li class="nav-item mb-3">
+          <a href="#" class="nav-link" data-step="3">
+            <span class="material-symbols-outlined icon-status">check_circle</span>
+            <span class="nav-label">Datos personales</span>
+          </a>
+        </li>
+        <li class="nav-item mb-3">
+          <a href="#" class="nav-link" data-step="4">
+            <span class="material-symbols-outlined icon-status">arrow_right_alt</span>
+            <span class="nav-label">Historial médico</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link" data-step="5">
+            <span class="material-symbols-outlined icon-status invisible">arrow_right_alt</span>
+            <span class="nav-label">Solicitud</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-fill d-flex justify-content-center align-items-center px-md-5">
+
+      <div class="step" data-step="1">
+        <div class="container px-mobile-24 py-5">
+          <div class="row align-items-center">
+            <!-- Texto -->
+            <div class="col-md-6">
+              <div class="intro-text text-center text-md-start mb-4 mb-md-0">
+                <h1 class="text-start">Cotiza y asegura tu salud.</h1>
+                <p class="p-text-g">
+                  Te ayudaremos a elegir el plan de salud que mejor se adapte a tus necesidades y presupuesto.
+                  Sigue estos pasos para tomar una decisión informada con plena confianza. ¡Comencemos!
+                </p>
+                <!-- Botón solo visible en desktop -->
+                <button class="btn-siguiente mt-3 d-none d-md-inline-block" onclick="goToStep(2)">Siguiente</button>
+              </div>
+            </div>
+
+            <!-- Imagen -->
+            <div class="col-md-6 text-center">
+              <div class="intro-image ms-md-5">
+                <img src="assets/person-axa.png" alt="Ilustración AXA" class="img-fluid" style="max-width: 100%;">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Botón fijo solo en mobile -->
+        <div class="btn-mobile-fixed d-md-none">
+          <button class="btn-siguiente w-100" onclick="goToStep(2)">Siguiente</button>
+        </div>
+      </div>
+
+      <div class="step" data-step="2">
+        <div data-step="2.1">
+          <div class="container px-mobile-24 py-5">
+            <h1 class="text-center-left mb-3">Qué necesitas para tu salud:</h1>
+            <p class="text-center-left p-title mb-5">
+              ¿Es para ti o para alguien más?
+            </p>
+            <!-- Cards -->
+            <div class="row row-cols-2 row-cols-md-2 g-4 justify-content-center">
+              <!-- Familiar -->
+              <div class="col d-flex justify-content-center">
+                <label class="card-proteccion p-4 text-center" id="card-familiar">
+                  <div class="d-flex flex-column align-items-center justify-content-center">
+                    <img id="icon-familiar" src="assets/person-fill-0.png" alt="Familiar"
+                      class="mb-3 card-icon img-fluid" width="140">
+                    <div class="fw-medium">Para mí</div>
+                    <div class="mt-3">
+                      <input type="radio" name="proteccion" value="familiar" class="form-check-input custom-radio"
+                        onchange="selectProtection(this)">
+                    </div>
+                  </div>
+                </label>
+              </div>
+
+              <!-- Individual -->
+              <div class="col d-flex justify-content-center">
+                <label class="card-proteccion p-4 text-center" id="card-individual">
+                  <div class="d-flex flex-column align-items-center justify-content-center">
+                    <img id="icon-individual" src="assets/family-fill-0.png" alt="Individual"
+                      class="mb-3 card-icon img-fluid" width="140">
+                    <div class="fw-medium">Para alguien más</div>
+                    <div class="mt-3">
+                      <input type="radio" name="proteccion" value="individual" class="form-check-input custom-radio"
+                        onchange="selectProtection(this)">
+                    </div>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+
+
+            <!-- Botones desktop -->
+            <div
+              class="botones-accion mt-5 gap-3 d-flex flex-column flex-md-row justify-content-end align-items-stretch align-items-md-center">
+              <button class="btn btn-regresar d-none d-md-inline-flex" onclick="goToStep(1)">
+                <span class="material-symbols-outlined align-middle me-1">arrow_left_alt</span>
+                Regresar
+              </button>
+
+              <button class="btn-siguiente btn-next-substep" data-next="2" disabled>
+                Siguiente
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <div data-step="2.2">
+          <div class="container px-mobile-24 py-5">
+            <h1 class="text-center-left mb-3">Qué necesitas para tu salud:</h1>
+            <p class="text-center-left p-title mb-5">
+              Protección para:
+            </p>
+            <!-- Cards -->
+            <div class="row row-cols-2 row-cols-md-2 g-4 justify-content-center">
+              <!-- Familiar -->
+              <div class="col d-flex justify-content-center">
+                <label class="card-proteccion p-4 text-center" id="card-familiar">
+                  <div class="d-flex flex-column align-items-center justify-content-center">
+                    <img id="icon-familiar" src="assets/family-fill-0.png" alt="Familiar"
+                      class="mb-3 card-icon img-fluid" width="140">
+                    <div class="fw-medium">Familiar</div>
+                    <div class="mt-3">
+                      <input type="radio" name="proteccion" value="familiar" class="form-check-input custom-radio"
+                        onchange="selectProtection(this)">
+                    </div>
+                  </div>
+                </label>
+              </div>
+
+              <!-- Individual -->
+              <div class="col d-flex justify-content-center">
+                <label class="card-proteccion p-4 text-center" id="card-individual">
+                  <div class="d-flex flex-column align-items-center justify-content-center">
+                    <img id="icon-individual" src="assets/person-fill-0.png" alt="Individual"
+                      class="mb-3 card-icon img-fluid" width="140">
+                    <div class="fw-medium">Individual</div>
+                    <div class="mt-3">
+                      <input type="radio" name="proteccion" value="individual" class="form-check-input custom-radio"
+                        onchange="selectProtection(this)">
+                    </div>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+
+
+            <!-- Botones desktop -->
+            <div
+              class="botones-accion mt-5 gap-3 d-flex flex-column flex-md-row justify-content-end align-items-stretch align-items-md-center">
+              <button class="btn btn-regresar d-none d-md-inline-flex" onclick="goToStep(1)">
+                <span class="material-symbols-outlined align-middle me-1">arrow_left_alt</span>
+                Regresar
+              </button>
+
+              <button class="btn-siguiente btn-next-substep" data-next="3" disabled>
+                Siguiente
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <div data-step="2.3">
+          <div class="container px-mobile-24 py-5">
+            <h1 class="text-center-left mb-3">Información sobre ti</h1>
+            <p class="text-center-left p-title mb-5">
+              ¿Cuál es tu identidad de género?
+            </p>
+            <!-- Cards -->
+            <div class="row row-cols-2 row-cols-md-2 g-4 justify-content-center">
+              <!-- Familiar -->
+              <div class="col d-flex justify-content-center">
+                <label class="card-proteccion p-4 text-center" id="card-familiar">
+                  <div class="d-flex flex-column align-items-center justify-content-center">
+                    <img id="icon-familiar" src="assets/person-fill-0.png" alt="Familiar"
+                      class="mb-3 card-icon img-fluid" width="140">
+                    <div class="fw-medium">Hombre</div>
+                    <div class="mt-3">
+                      <input type="radio" name="proteccion" value="familiar" class="form-check-input custom-radio"
+                        onchange="selectProtection(this)">
+                    </div>
+                  </div>
+                </label>
+              </div>
+
+              <!-- Individual -->
+              <div class="col d-flex justify-content-center">
+                <label class="card-proteccion p-4 text-center" id="card-individual">
+                  <div class="d-flex flex-column align-items-center justify-content-center">
+                    <img id="icon-individual" src="assets/women-fill-0.png" alt="Individual"
+                      class="mb-3 card-icon img-fluid" width="140">
+                    <div class="fw-medium">Mujer</div>
+                    <div class="mt-3">
+                      <input type="radio" name="proteccion" value="individual" class="form-check-input custom-radio"
+                        onchange="selectProtection(this)">
+                    </div>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+
+
+            <!-- Botones desktop -->
+            <div
+              class="botones-accion mt-5 gap-3 d-flex flex-column flex-md-row justify-content-end align-items-stretch align-items-md-center">
+              <button class="btn btn-regresar d-none d-md-inline-flex" onclick="goToStep(1)">
+                <span class="material-symbols-outlined align-middle me-1">arrow_left_alt</span>
+                Regresar
+              </button>
+
+              <button class="btn-siguiente btn-next-substep" data-next="4" disabled>
+                Siguiente
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <div data-step="2.4">
+          <div class="container px-mobile-24 py-5">
+            <h1 class="text-center-left mb-3">Qué necesitas para tu salud?</h1>
+            <p class="text-center-left p-title mb-5">
+              Selecciona una opción si aplica.
+            </p>
+            <!-- Cards -->
+            <div class="opciones-genero">
+              <label class="opcion-radio-genero">
+                <input type="radio" name="genero" value="hombre" />
+                <span class="radio-visual"></span>
+                <span class="texto-opcion">Sin información extra</span>
+              </label>
+
+              <label class="opcion-radio-genero">
+                <input type="radio" name="genero" value="estudiante" />
+                <span class="radio-visual"></span>
+                <span class="texto-opcion">Quiero un seguro para estudiante nacional o de intercambio</span>
+              </label>
+
+              <label class="opcion-radio-genero">
+                <input type="radio" name="genero" value="medico" />
+                <span class="radio-visual"></span>
+                <span class="texto-opcion">Quiero protección de consultas médicas y análisis médicos</span>
+              </label>
+            </div>
+
+            <!-- Botones desktop -->
+            <div
+              class="botones-accion mt-5 gap-3 d-flex flex-column flex-md-row justify-content-end align-items-stretch align-items-md-center">
+              <button class="btn btn-regresar d-none d-md-inline-flex" onclick="goToStep(1)">
+                <span class="material-symbols-outlined align-middle me-1">arrow_left_alt</span>
+                Regresar
+              </button>
+
+              <button class="btn-siguiente btn-next-substep" onclick="goToStep(3)">
+                Siguiente
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step" data-step="3">
+        <div class="container px-mobile-24 py-5">
+          <div class="row">
+            <div class="col-md-6">
+              <h1 class="fw-bold mb-3">Tus datos personales</h1>
+              <p class="mb-4">
+                llena los siguientes datos para poder compartir tu cotización
+              </p>
+
+              <form>
+                <div class="mb-3">
+                  <input type="text" class="form-control custom-input" placeholder="Nombre(s)*" required>
+                </div>
+
+                <div class="mb-3">
+                  <input type="text" class="form-control custom-input" placeholder="Apellidos*" required>
+                </div>
+
+                <div class="mb-3">
+                  <input type="tel" class="form-control custom-input" placeholder="Teléfono*" required>
+                </div>
+
+                <div class="mb-3">
+                  <input type="email" class="form-control custom-input" placeholder="Correo electrónico*" required>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <input type="text" class="form-control custom-input" placeholder="Código postal*" required>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <select class="form-select custom-input" required>
+                      <option value="">Estado*</option>
+                      <option>CDMX</option>
+                      <option>Estado de México</option>
+                      <option>Jalisco</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div
+                  class="botones-accion mt-5 gap-3 d-flex flex-column flex-md-row justify-content-start align-items-stretch align-items-md-center">
+                  <button class="btn btn-regresar d-none d-md-inline-flex" onclick="goToStep(2)">
+                    <span class="material-symbols-outlined align-middle me-1">arrow_left_alt</span>
+                    Regresar
+                  </button>
+
+                  <button class="btn-siguiente btn-next-substep" onclick="goToStep(4)">
+                    Siguiente
+                  </button>
+                </div>
+
+              </form>
+            </div>
+
+            <div class="col-md-6 d-none d-md-flex align-items-center justify-content-center">
+              <img src="assets/app-phone.png" alt="Ilustración datos personales" class="img-fluid"
+                style="max-height: 400px;">
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="step" data-step="4">
+        <div data-step="4.1">
+          <div class="container px-mobile-24 py-5">
+            <h1 class="text-center-left mb-3">Información sobre tu salud actual</h1>
+            <p class="text-center-left p-title mb-5">
+              ¿Te encuentras bajo tratamiento de salud continuo o tienes un procedimiento médico <br> planeado en los
+              próximos
+              meses?
+            </p>
+            <!-- collapsible -->
+            <div class="opciones-genero medicamentos-options">
+              <!-- Opción 1 -->
+              <label class="opcion-radio-genero">
+                <input type="radio" name="medicamento" value="si-tomo" onchange="selectProtection(this)" />
+                <span class="radio-visual"></span>
+                <span class="texto-opcion">Sí, estoy bajo tratamiento médico continuo.</span>
+              </label>
+
+              <!-- Opción 2 con campo expandible -->
+              <label class="opcion-radio-expandible">
+                <input type="radio" name="medicamento" value="si-indicacion" onchange="selectProtection(this)" />
+                <span class="radio-visual-expandible"></span>
+                <span class="texto-opcion-expandible fw-semibold">
+                  Sí, tengo un procedimiento médico planeado.
+                </span>
+
+                <div class="extra-expandible">
+                  <input type="text" class="input-expandible" placeholder="">
+                  <div class="extra-label-expandible">(Si deseas, puedes dar más detalles)</div>
+                </div>
+              </label>
+
+              <!-- Opción 3 -->
+              <label class="opcion-radio-genero">
+                <input type="radio" name="medicamento" value="no" onchange="selectProtection(this)" />
+                <span class="radio-visual"></span>
+                <span class="texto-opcion">No, no me encuentro en ninguna de estas situaciones.</span>
+              </label>
+            </div>
+            <!-- Botones desktop -->
+            <div
+              class="botones-accion mt-5 gap-3 d-flex flex-column flex-md-row justify-content-center align-items-stretch align-items-md-center">
+              <button class="btn btn-regresar d-none d-md-inline-flex" onclick="goToStep(1)">
+                <span class="material-symbols-outlined align-middle me-1">arrow_left_alt</span>
+                Regresar
+              </button>
+
+              <button class="btn-siguiente btn-next-substep" data-next="2" disabled>
+                Siguiente
+              </button>
+            </div>
+
+          </div>
+        </div>
+        <div data-step="4.2">
+          <div class="container px-mobile-24 py-5">
+            <h1 class="text-center-left mb-3">Información sobre tu salud actual</h1>
+            <p class="text-center-left p-title mb-5">
+              ¿Actualmente utilizas algún medicamento como parte de un tratamiento <br> a largo plazo?
+            </p>
+            <!-- collapsible -->
+            <div class="opciones-genero medicamentos-options">
+              <!-- Opción 1 -->
+              <label class="opcion-radio-genero">
+                <input type="radio" name="medicamento" value="si-tomo" onchange="selectProtection(this)" />
+                <span class="radio-visual"></span>
+                <span class="texto-opcion">Sí, tomo un medicamento de manera continua.</span>
+              </label>
+
+              <!-- Opción 2 con campo expandible -->
+              <label class="opcion-radio-expandible">
+                <input type="radio" name="medicamento" value="si-indicacion" onchange="selectProtection(this)" />
+                <span class="radio-visual-expandible"></span>
+                <span class="texto-opcion-expandible fw-semibold">
+                  Sí, tengo indicación médica de tomar un medicamento de manera continua.
+                </span>
+
+                <div class="extra-expandible">
+                  <input type="text" class="input-expandible" placeholder="">
+                  <div class="extra-label-expandible">(Si deseas, puedes dar más detalles)</div>
+                </div>
+              </label>
+
+              <!-- Opción 3 -->
+              <label class="opcion-radio-genero">
+                <input type="radio" name="medicamento" value="no" onchange="selectProtection(this)" />
+                <span class="radio-visual"></span>
+                <span class="texto-opcion">No, no sigo un tratamiento con medicamentos de manera continua.</span>
+              </label>
+            </div>
+
+            <!-- Botones desktop -->
+            <div
+              class="botones-accion mt-5 gap-3 d-flex flex-column flex-md-row justify-content-center align-items-stretch align-items-md-center">
+              <button class="btn btn-regresar d-none d-md-inline-flex" onclick="goToStep(1)">
+                <span class="material-symbols-outlined align-middle me-1">arrow_left_alt</span>
+                Regresar
+              </button>
+
+              <button class="btn-siguiente btn-next-substep" data-next="3" disabled>
+                Siguiente
+              </button>
+            </div>
+
+          </div>
+        </div>
+        <div data-step="4.3">
+          <div class="container px-mobile-24 py-5">
+            <h1 class="text-center-left mb-3">Información sobre tu salud actual</h1>
+            <p class="text-center-left p-title mb-5">
+              ¿Deseas incluir beneficios de maternidad en tu plan de salud?
+            </p>
+            <!-- collapsible -->
+            <div class="opciones-genero medicamentos-options">
+              <!-- Opción 1 -->
+              <label class="opcion-radio-genero">
+                <input type="radio" name="medicamento" value="si-tomo" onchange="selectProtection(this)" />
+                <span class="radio-visual"></span>
+                <span class="texto-opcion">Sí estoy embarazada y  me interesa cobertura completa para embarazo y
+                  parto.</span>
+              </label>
+
+              <!-- Opción 2 con campo expandible -->
+              <label class="opcion-radio-expandible">
+                <input type="radio" name="medicamento" value="si-indicacion" onchange="selectProtection(this)" />
+                <span class="radio-visual-expandible"></span>
+                <span class="texto-opcion-expandible fw-semibold">
+                  Sí planeo embrazarme y  me interesa cobertura parcial (consulta prenatal, ultrasonidos, etc.).
+                </span>
+
+                <div class="extra-expandible">
+                  <input type="text" class="input-expandible" placeholder="">
+                  <div class="extra-label-expandible">(Si deseas, puedes dar más detalles)</div>
+                </div>
+              </label>
+
+              <!-- Opción 3 -->
+              <label class="opcion-radio-genero">
+                <input type="radio" name="medicamento" value="no" onchange="selectProtection(this)" />
+                <span class="radio-visual"></span>
+                <span class="texto-opcion">No, no necesito cobertura de maternidad en este momento.</span>
+              </label>
+            </div>
+
+
+
+
+
+            <!-- Botones desktop -->
+            <div
+              class="botones-accion mt-5 gap-3 d-flex flex-column flex-md-row justify-content-center align-items-stretch align-items-md-center">
+              <button class="btn btn-regresar d-none d-md-inline-flex" onclick="goToStep(1)">
+                <span class="material-symbols-outlined align-middle me-1">arrow_left_alt</span>
+                Regresar
+              </button>
+
+              <button class="btn-siguiente btn-next-substep" data-next="5" disabled>
+                Enviar
+              </button>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="step" data-step="5">
+        <div class="container px-mobile-24 py-5 text-center">
+          <h1 class="fw-bold mb-3">¡Solicitud enviada exitosamente!</h1>
+          <p class="mb-2">Tu cotización está lista.</p>
+          <p>Recibirás por correo la solicitud para cuidar de tu salud, en breve nos pondremos en contacto contigo.</p>
+
+          <!-- Imagen -->
+          <div class="my-4">
+            <img src="assets/Help.png" alt="Solicitud exitosa" class="img-fluid" style="max-width: 320px;">
+          </div>
+
+          <!-- ID de cotización debajo de la imagen -->
+          <p class="fw-semibold">Identificador de tu cotización: <span class="fw-bold">VPIGM1234</span></p>
+
+          <!-- Redes sociales -->
+          <div class="mt-5">
+            <p class="fw-medium mb-3">Síguenos en nuestras redes sociales:</p>
+            <div class="d-flex justify-content-center gap-3">
+              <a href="https://www.facebook.com/axamexico/?ref=br_rs" target="_blank" rel="noopener noreferrer">
+                <img src="assets/facebook.png" alt="Facebook" width="28">
+              </a>
+              <a href="https://www.instagram.com/axa.mexico/#" target="_blank" rel="noopener noreferrer">
+                <img src="assets/instagram.png" alt="Instagram" width="28">
+              </a>
+              <a href="https://www.tiktok.com/@axa.mexico" target="_blank" rel="noopener noreferrer">
+                <img src="assets/tiktok.png" alt="TikTok" width="28">
+              </a>
+              <a href="https://www.youtube.com/user/MexicoSegurosAXA/featured" target="_blank"
+                rel="noopener noreferrer">
+                <img src="assets/youtube.png" alt="YouTube" width="28">
+              </a>
+              <a href="https://mx.linkedin.com/company/axa-m-xico" target="_blank" rel="noopener noreferrer">
+                <img src="assets/linkedin..png" alt="LinkedIn" width="28">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer text-white text-start py-3 d-none d-md-block">
+    <div class="container">
+      <small>
+        “Aplican restricciones. Los productos se rigen por los términos y condiciones contratados. Consulta detalles de
+        coberturas, exclusiones y requisitos de contratación en <a href="https://axa.mx/" target="_blank"
+          class="footer-link"><b>axa.mx.</b> </a> AXA Seguros S.A. de C.V. con domicilio en Félix
+        Cuevas número 366, piso 3, Colonia Tlacoquemécatl, Alcaldía Benito Juárez, C.P. 03200, en la Ciudad de México,
+        le informa que sus datos personales serán tratados únicamente para los fines de la relación jurídica. Conoce
+        nuestro <a href="https://axa.mx/aviso-de-privacidad" target="_blank" class="footer-link"><b>Aviso de
+            Privacidad.”</b></a> </small>
+    </div>
+  </footer>
+
+  <script>
+    function selectProtection(input) {
+      // Resetear todos los iconos y tarjetas
+      document.querySelectorAll('.card-proteccion').forEach(card => {
+        card.classList.remove('selected');
+        const icon = card.querySelector('.card-icon');
+        if (icon) {
+          icon.src = icon.src.replace('-fill-1', '-fill-0');
+        }
+      });
+
+      // Activar solo el seleccionado
+      const selectedCard = input.closest('.card-proteccion');
+      const selectedIcon = selectedCard.querySelector('.card-icon');
+      if (selectedCard) selectedCard.classList.add('selected');
+      if (selectedIcon) selectedIcon.src = selectedIcon.src.replace('-fill-0', '-fill-1');
+
+      // Habilitar el botón siguiente
+      document.getElementById('btn-next-proteccion').disabled = false;
+    }
+  </script>
+
+  <script>
+    let currentStep = 1;
+    let maxStep = 1;
+    let currentSubStep = 1;
+
+    function goToStep(step) {
+      currentStep = step;
+      if (step > maxStep) maxStep = step;
+
+      // Oculta todos los pasos
+      document.querySelectorAll('.step').forEach(el => {
+        el.style.display = el.dataset.step == step ? 'block' : 'none';
+      });
+
+      // Si el paso tiene subpasos, muestra el primero
+      if (step === 2 || step === 4) {
+        currentSubStep = 1;
+        showSubStep(currentSubStep);
+      }
+
+      // Sidebar
+      document.querySelectorAll('#sidebarNav .nav-link').forEach(link => {
+        const linkStep = parseInt(link.dataset.step);
+        const icon = link.querySelector('.icon-status');
+        link.classList.remove('active', 'completed', 'disabled');
+        icon.classList.remove('invisible');
+
+        if (linkStep === step) {
+          link.classList.add('active');
+          icon.textContent = 'arrow_right_alt';
+        } else if (linkStep <= maxStep) {
+          link.classList.add('completed');
+          icon.textContent = 'check_circle';
+        } else {
+          link.classList.add('disabled');
+          icon.classList.add('invisible');
+        }
+      });
+
+      // Progress bar
+      const progress = ((step - 1) / 4) * 100;
+      document.getElementById('progressBar').style.width = progress + '%';
+    }
+
+    function goToPreviousStep() {
+      if (currentStep > 1) goToStep(currentStep - 1);
+    }
+
+    function showSubStep(substep) {
+      currentSubStep = substep;
+
+      document.querySelectorAll(`.step[data-step="${currentStep}"] > div`).forEach(el => {
+        const subStepAttr = el.getAttribute('data-step');
+        el.style.display = subStepAttr === `${currentStep}.${substep}` ? 'block' : 'none';
+      });
+    }
+
+
+    function goToSubStep(next) {
+      if (next >= 1 && next <= 4) {
+        showSubStep(next);
+      }
+      // Si es 5, avanza al siguiente paso completo
+      if (next > 4) {
+        goToStep(currentStep + 1);
+      }
+    }
+
+    function selectProtection(input) {
+      // Resetear tarjetas e iconos
+      document.querySelectorAll('.card-proteccion').forEach(card => {
+        card.classList.remove('selected');
+        const icon = card.querySelector('.card-icon');
+        if (icon) icon.src = icon.src.replace('-fill-1', '-fill-0');
+      });
+
+      const selectedCard = input.closest('.card-proteccion');
+      const selectedIcon = selectedCard?.querySelector('.card-icon');
+      if (selectedCard) selectedCard.classList.add('selected');
+      if (selectedIcon) selectedIcon.src = selectedIcon.src.replace('-fill-0', '-fill-1');
+
+      // Habilitar botón del subpaso visible (dinámico)
+      const currentVisible = document.querySelector(`.step[data-step="${currentStep}"] > div[style*="block"]`);
+      if (currentVisible) {
+        const btn = currentVisible.querySelector('.btn-next-substep');
+        if (btn) btn.disabled = false;
+      }
+    }
+
+    // Sidebar click
+    document.querySelectorAll('#sidebarNav .nav-link').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const step = parseInt(link.dataset.step);
+        if (step <= maxStep) goToStep(step);
+      });
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      goToStep(1);
+
+      document.querySelectorAll('.btn-next-substep').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const next = parseInt(btn.dataset.next);
+          goToSubStep(next);
+        });
+      });
+    });
+  </script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const step = 1;
+      const substep = 0;
+
+      goToStep(step); // Muestra el paso 2
+      if (step === 2) {
+        setTimeout(() => {
+          goToSubStep(substep); // Luego activa el subpaso deseado
+        }, 50); // Pequeña espera para asegurar que el DOM esté listo
+      }
+    });
+  </script>
+
+
+
+
+</body>
+
+</html>

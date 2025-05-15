@@ -1,0 +1,697 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  overflow-y: auto;
+}
+
+
+
+main {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 80px; /* igual o mayor a la altura del footer */
+}
+
+
+
+.page-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .main-content {
+    display: block;
+    padding: 24px;
+  }
+}
+
+
+
+/* === FONT-FACE === */
+@font-face {
+     font-family: 'Publico-Bold';
+     src: url('../assets/fonts/Publico-Bold.woff2') format('woff2');
+     font-weight: bold;
+     font-style: normal;
+}
+
+@font-face {
+     font-family: 'SourceSansPro';
+     src: url('../assets/fonts/SourceSansPro-Regular.woff2') format('woff2');
+     font-weight: normal;
+     font-style: normal;
+}
+
+@font-face {
+     font-family: 'SourceSansPro';
+     src: url('../assets/fonts/SourceSansPro-Bold.woff2') format('woff2');
+     font-weight: bold;
+     font-style: normal;
+}
+
+
+body,
+p,
+span,
+a,
+button,
+.navbar,
+.nav-link,
+label,
+input,
+textarea {
+  font-family: 'SourceSansPro', sans-serif;
+  font-size: 16px;
+}
+
+h1 {
+  color: #333;
+  font-family: 'Publico-Bold';
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+
+}
+
+.p-title {
+  color: #333;
+  font-family: 'SourceSansPro', sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+@media (max-width: 767px) {
+  .p-title {
+    font-size: 18px;
+  }
+}
+
+
+
+.p-text-g {
+  margin-block: 1lh;
+  color: #333;
+  font-family: 'SourceSansPro', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+}
+
+.sidebar {
+     width: 300px;
+     min-height: 100vh;
+     background-color: #fff;
+     border-right: 1px solid #e5e5e5;
+     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+     padding: 0 24px;
+}
+
+.logo-sidebar {
+     max-width: 120px;
+}
+
+.mt-60 {
+     margin-top: 60px;
+}
+
+.sidebar-nav {
+     margin-top: 60px;
+}
+
+.sidebar-nav .nav-item {
+     margin-bottom: 16px !important;
+}
+.sidebar-nav .nav-link {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 0;
+  font-weight: 500;
+  color: #000;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.sidebar-nav .nav-link .icon-status {
+  flex-shrink: 0;
+  width: 24px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.sidebar-nav .nav-link .nav-label {
+  flex-grow: 1;
+  text-align: left;
+}
+
+/* Paso activo */
+.sidebar-nav .nav-link.active {
+  color: #000095;
+  font-weight: 700;
+}
+
+/* Paso completado */
+.sidebar-nav .nav-link.completed {
+  color: #000095;
+}
+
+/* Paso bloqueado */
+.sidebar-nav .nav-link.disabled {
+  pointer-events: none;
+  color: #333333;
+}
+
+.sidebar-nav .nav-link.disabled .icon-status {
+  visibility: hidden;
+}
+
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #000095;
+  font-size: 14px;
+  line-height: 1.6;
+  padding: 16px 0;
+  color: white;
+  z-index: 999;
+}
+
+/* PROGRESS BAR */
+.progress-bar-container {
+  height: 6px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: #D6D6D6;
+  flex-shrink: 0;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: #000095; 
+  transition: width 0.3s ease;
+}
+
+
+/* NAV MOBILE */
+.nav-mobile {
+  background: #FFF;
+  height: 80px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  position: relative;
+  padding: 0 16px;
+}
+
+.btn-back {
+  position: absolute;
+  left: 16px;
+  background: transparent;
+  border: none;
+  color: #000;
+  font-size: 24px;
+  padding: 0;
+  cursor: pointer;
+}
+
+.logo-mobile {
+  height: 56px;
+}
+
+/* PROGRESS BAR */
+.progress-bar-container {
+  height: 6px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: #D6D6D6;
+  flex-shrink: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .progress-bar-container {
+    padding-right: 292.5px; /* solo en desktop, si tu diseño lo exige */
+  }
+}
+
+
+.progress-bar-fill {
+  height: 100%;
+  width: 0%;
+  background-color: #000095;
+  transition: width 0.3s ease;
+}
+
+
+
+
+.step-intro {
+  padding: 60px 20px;
+}
+
+.container-intro {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 0 16px;
+  gap: 32px;
+}
+
+@media (max-width: 767px) {
+  .container-intro {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    text-align: center;
+    flex-direction: column !important;
+  }
+
+  .intro-text {
+    text-align: center !important;
+    margin-bottom: 24px;
+  }
+
+  .intro-image {
+    margin-top: 16px;
+  }
+
+  .intro-image img {
+    max-width: 375px;
+  }
+}
+
+
+
+.intro-title {
+  font-family: 'Publico-Bold', serif;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  color: #000;
+}
+
+.intro-description {
+  font-size: 14px;
+  color: #333;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .intro-title {
+    font-size: 26px;
+  }
+
+  .intro-description {
+    font-size: 16px;
+    margin: 0;
+  }
+
+  .intro-image img {
+    max-width: 460px;
+  }
+}
+
+
+.btn-siguiente {
+  width: 267px;
+  height: 65px;
+  flex-shrink: 0;
+  background-color: #000095;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 8px; /* opcional para bordes redondeados */
+  font-size: 20px;
+  font-style: normal;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.btn-siguiente:hover {
+  background-color: #00005B;
+}
+
+/* Estilo responsive para mobile */
+@media (max-width: 767px) {
+  .btn-siguiente {
+    width: 100%;
+  }
+}
+
+.btn-mobile-fixed {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff; /* Fondo blanco para evitar solapamientos */
+  padding: 10px 20px;
+  z-index: 999;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Cards */
+.card-proteccion {
+  border: 2px solid transparent;
+  transition: box-shadow 0.3s, border 0.3s;
+  cursor: pointer;
+  width: 100%;
+  padding: 24px !important;
+  box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.10);
+}
+
+/* Ocultar el radio original de Bootstrap */
+.custom-radio {
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: #f7f7f7;
+  border: 1px solid #000095;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Círculo interior visible al seleccionar */
+.custom-radio:checked::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  background-color: #000095;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  box-shadow: 0 0 0 4px #f7f7f7; /* borde "falso" del fondo */
+}
+
+
+/* Sin texto visible, pero si usas texto junto, aplica esto */
+.custom-radio + .texto-opcion {
+  font-size: 16px;
+  color: rgba(51, 51, 51, 0.4);
+  margin-left: 12px;
+  transition: color 0.2s ease-in-out;
+}
+
+.custom-radio:checked + .texto-opcion {
+  color: #333;
+  font-weight: 600;
+}
+
+/* Card seleccionado */
+.card-proteccion.selected {
+  box-shadow: 0px 8px 25px 0px rgba(0, 0, 149, 0.20);
+}
+
+
+.btn-regresar {
+  background: none;
+  border: none;
+  font-family: 'SourceSansPro', sans-serif;
+  color: #000095;
+  font-weight: 500;
+  font-size: 20px;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 0;
+  margin-right: 32px;
+  text-decoration: none;
+}
+
+.btn-regresar .material-symbols-outlined {
+  font-size: 32px;
+}
+
+.w-260 {
+  width: 260px;
+}
+
+@media (max-width: 767px) {
+  .w-260 {
+    width: 100%;
+  }
+}
+
+
+.text-center-left {
+  text-align: center;
+}
+
+@media (max-width: 767px) {
+  .text-center-left {
+    text-align: left;
+  }
+}
+
+.form-check-input:checked {
+  background-color: #000095;
+  border-color: #000095;
+  cursor: pointer;
+}
+
+*:focus {
+  box-shadow: none !important;
+  cursor: pointer;
+
+}
+
+@media (max-width: 767.98px) {
+  .btn-next-substep {
+    position: fixed;
+    bottom: 20px; /* separación inferior del viewport */
+    left: 16px;   /* separación lateral */
+    right: 16px;
+    width: auto;
+    border-radius: 8px;
+    z-index: 999;
+  }
+
+  body {
+    padding-bottom: 100px; /* deja espacio para que no tape el contenido */
+  }
+}
+
+
+@media (max-width: 767.98px) {
+  .px-mobile-24 {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+}
+
+
+
+.opciones-genero {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.opcion-radio-genero {
+  display: flex;
+  align-items: center;
+  background-color: #f7f7f7;
+  padding: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.opcion-radio-genero input[type="radio"] {
+  display: none;
+}
+
+.radio-visual {
+  width: 24px;
+  height: 24px;
+  border: 1px solid #000095;
+  border-radius: 50%;
+  margin-right: 16px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.radio-visual::after {
+  content: "";
+  width: 12px;
+  height: 12px;
+  background-color: #000095;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.2s ease-in-out;
+  box-shadow: 0 0 0 4px #f7f7f7; /* borde "falso" del fondo */
+}
+
+.opcion-radio-genero input[type="radio"]:checked + .radio-visual::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.texto-opcion {
+  font-size: 16px;
+  color: rgba(51, 51, 51, 0.4);
+  transition: color 0.2s ease-in-out;
+}
+
+.opcion-radio-genero input[type="radio"]:checked + .radio-visual + .texto-opcion {
+  color: rgba(51, 51, 51, 1);
+  font-weight: 600;
+}
+
+
+.custom-input {
+  height: 65px;
+  border: 1px solid #000095;
+  border-radius: 0;
+  font-size: 16px;
+}
+
+.custom-input::placeholder {
+  color: rgba(51, 51, 51, 0.5);
+}
+
+.btn-secondary-custom {
+  background-color: #C4C4C4;
+  color: white;
+  padding: 12px 32px;
+  border: none;
+  height: 65px;
+  font-size: 16px;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.opcion-radio-expandible {
+  display: flex;
+  flex-direction: column;
+  background-color: #f7f7f7;
+  padding: 16px;
+  border-radius: 8px;
+  gap: 7px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+}
+
+.opcion-radio-expandible input[type="radio"] {
+  display: none;
+}
+
+.radio-visual-expandible {
+  width: 24px;
+  height: 24px;
+  border: 1px solid #000095;
+  border-radius: 50%;
+  position: relative;
+  flex-shrink: 0;
+  margin-bottom: -8px;
+}
+
+.radio-visual-expandible::after {
+  content: "";
+  width: 12px;
+  height: 12px;
+  background-color: #000095;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.2s ease-in-out;
+  box-shadow: 0 0 0 4px #f7f7f7;
+}
+
+.opcion-radio-expandible input[type="radio"]:checked + .radio-visual-expandible::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.texto-opcion-expandible {
+  font-size: 16px;
+  color: rgba(51, 51, 51, 0.4);
+  transition: color 0.2s ease-in-out;
+  display: block;
+  margin-left: 40px;
+  margin-top: -24px;
+}
+
+.opcion-radio-expandible input[type="radio"]:checked + .radio-visual-expandible + .texto-opcion-expandible {
+  color: #333;
+  font-weight: 600;
+}
+
+.extra-expandible {
+  display: none;
+  flex-direction: column;
+  margin-top: 8px;
+  margin-left: 40px;
+}
+
+.opcion-radio-expandible input[type="radio"]:checked ~ .extra-expandible {
+  display: flex;
+}
+
+.input-expandible {
+  border: none;
+  border-bottom: 1.5px solid #333;
+  font-size: 16px;
+  padding: 6px 0;
+  outline: none;
+  background-color: transparent;
+  color: #333;
+  width: 100%;
+}
+
+.extra-label-expandible {
+  font-size: 14px;
+  color: rgba(51, 51, 51, 0.6);
+  margin-top: 4px;
+}
+
+.small, small {
+    font-size: 13px !important;
+}
+
+.footer-link {
+    color: #fff;
+    text-decoration: underline;
+    font-weight: 700;
+    font-size: 13px;
+}
