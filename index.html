@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <link rel="icon" href="https://axa.mx/o/axa-mx-theme/images/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -84,7 +85,7 @@
                 <button class="btn-siguiente mt-3 d-none d-md-inline-block" onclick="goToStep(2)">Cotiza ahora</button>
               </div>
             </div>
-      
+
             <!-- Imagen -->
             <div class="col-md-6 text-center">
               <div class="intro-image ms-md-5">
@@ -93,14 +94,14 @@
             </div>
           </div>
         </div>
-      
+
         <!-- Botón fijo solo en mobile -->
         <div class="btn-mobile-fixed d-md-none">
           <button class="btn-siguiente w-100" data-bs-toggle="modal" data-bs-target="#modalTerminos">
             Cotiza ahora
           </button>
         </div>
-      
+
       </div>
 
       <div class="step" data-step="2">
@@ -385,8 +386,9 @@
       <div class="step" data-step="4">
         <div data-step="4.1">
           <div class="container px-mobile-24 py-5">
-            <h1 class="text-center-left mb-3" >Información sobre tu salud actual</h1>
-            <p class="text-center-left" style="color: #838383;">Compártenos la siguiente información para que tu seguro cubra tus necesidades.</p>
+            <h1 class="text-center-left mb-3">Información sobre tu salud actual</h1>
+            <p class="text-center-left" style="color: #838383;">Compártenos la siguiente información para que tu seguro
+              cubra tus necesidades.</p>
             <p class="text-center-left p-title mb-5">
               ¿Te encuentras bajo tratamiento de salud continuo o tienes un procedimiento médico <br> planeado en los
               próximos
@@ -586,31 +588,33 @@
   </div>
 
   <!-- Modal -->
-<div class="modal fade" id="modalTerminos" tabindex="-1" aria-labelledby="modalTerminosLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content rounded-4 p-4">
+  <div class="modal fade" id="modalTerminos" tabindex="-1" aria-labelledby="modalTerminosLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content rounded-4 p-4">
 
-      <div class="modal-body">
-        <h1>Términos y Condiciones</h1>
-        <small>
-        “Aplican restricciones. Los productos se rigen por los términos y condiciones contratados. Consulta detalles de
-        coberturas, exclusiones y requisitos de contratación en <a href="https://axa.mx/" target="_blank"
-          class="footer-link-2"><b>axa.mx.</b> </a> AXA Seguros S.A. de C.V. con domicilio en Félix
-        Cuevas número 366, piso 3, Colonia Tlacoquemécatl, Alcaldía Benito Juárez, C.P. 03200, en la Ciudad de México,
-        le informa que sus datos personales serán tratados únicamente para los fines de la relación jurídica. Conoce
-        nuestro <a href="https://axa.mx/aviso-de-privacidad" target="_blank" class="footer-link-2"><b>Aviso de
-            Privacidad.”</b></a> </small>
+        <div class="modal-body">
+          <h1>Términos y Condiciones</h1>
+          <small>
+            “Aplican restricciones. Los productos se rigen por los términos y condiciones contratados. Consulta detalles
+            de
+            coberturas, exclusiones y requisitos de contratación en <a href="https://axa.mx/" target="_blank"
+              class="footer-link-2"><b>axa.mx.</b> </a> AXA Seguros S.A. de C.V. con domicilio en Félix
+            Cuevas número 366, piso 3, Colonia Tlacoquemécatl, Alcaldía Benito Juárez, C.P. 03200, en la Ciudad de
+            México,
+            le informa que sus datos personales serán tratados únicamente para los fines de la relación jurídica. Conoce
+            nuestro <a href="https://axa.mx/aviso-de-privacidad" target="_blank" class="footer-link-2"><b>Aviso de
+                Privacidad.”</b></a> </small>
+        </div>
+
+        <div class="modal-footer border-0 p-0 pt-3">
+          <button class="btn-siguiente w-100" onclick="goToStep(2)" data-bs-dismiss="modal">
+            Continuar
+          </button>
+        </div>
+
       </div>
-
-      <div class="modal-footer border-0 p-0 pt-3">
-        <button class="btn-siguiente w-100" onclick="goToStep(2)" data-bs-dismiss="modal">
-          Continuar
-        </button>
-      </div>
-
     </div>
   </div>
-</div>
 
 
   <!-- FOOTER -->
@@ -627,6 +631,8 @@
     </div>
   </footer>
 
+
+  <!-- cambio de imagenes dinamicas -->
   <script>
     function selectProtection(input) {
       // Resetear todos los iconos y tarjetas
@@ -648,7 +654,7 @@
       document.getElementById('btn-next-proteccion').disabled = false;
     }
   </script>
-
+  <!-- cambiar entre IDs -->
   <script>
     let currentStep = 1;
     let maxStep = 1;
@@ -758,25 +764,25 @@
       });
     });
   </script>
-  <script src="js/bootstrap.bundle.min.js"></script>
 
+
+  <!-- script para posicionarme entre elementos
+  <script src="js/bootstrap.bundle.min.js"></script>
+  
   <script>
     window.addEventListener('DOMContentLoaded', () => {
       const step = 1;
       const substep = 0;
 
-      goToStep(step); // Muestra el paso 2
+      goToStep(step); 
       if (step === 2) {
         setTimeout(() => {
-          goToSubStep(substep); // Luego activa el subpaso deseado
-        }, 50); // Pequeña espera para asegurar que el DOM esté listo
+          goToSubStep(substep); 
+        }, 50); 
       }
     });
   </script>
-
-
-
-
+  -->
 </body>
 
 </html>
