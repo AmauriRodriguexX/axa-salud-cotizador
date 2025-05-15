@@ -79,6 +79,7 @@ h1 {
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+  line-height: 32px !important;
 
 }
 
