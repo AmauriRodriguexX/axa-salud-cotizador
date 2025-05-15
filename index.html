@@ -321,7 +321,7 @@
             <div class="col-md-6">
               <h1 class="fw-bold mb-3">Tus datos personales</h1>
               <p class="mb-4">
-                llena los siguientes datos para poder compartir tu cotización
+                Llena los siguientes datos para poder compartir tu cotización
               </p>
 
               <form>
@@ -382,7 +382,8 @@
       <div class="step" data-step="4">
         <div data-step="4.1">
           <div class="container px-mobile-24 py-5">
-            <h1 class="text-center-left mb-3">Información sobre tu salud actual</h1>
+            <h1 class="text-center-left mb-3" >Información sobre tu salud actual</h1>
+            <p class="text-center-left" style="color: #838383;">Compártenos la siguiente información para que tu seguro cubra tus necesidades.</p>
             <p class="text-center-left p-title mb-5">
               ¿Te encuentras bajo tratamiento de salud continuo o tienes un procedimiento médico <br> planeado en los
               próximos
@@ -401,7 +402,7 @@
               <label class="opcion-radio-expandible">
                 <input type="radio" name="medicamento" value="si-indicacion" onchange="selectProtection(this)" />
                 <span class="radio-visual-expandible"></span>
-                <span class="texto-opcion-expandible fw-semibold">
+                <span class="texto-opcion-expandible">
                   Sí, tengo un procedimiento médico planeado.
                 </span>
 
@@ -452,7 +453,7 @@
               <label class="opcion-radio-expandible">
                 <input type="radio" name="medicamento" value="si-indicacion" onchange="selectProtection(this)" />
                 <span class="radio-visual-expandible"></span>
-                <span class="texto-opcion-expandible fw-semibold">
+                <span class="texto-opcion-expandible">
                   Sí, tengo indicación médica de tomar un medicamento de manera continua.
                 </span>
 
@@ -505,7 +506,7 @@
               <label class="opcion-radio-expandible">
                 <input type="radio" name="medicamento" value="si-indicacion" onchange="selectProtection(this)" />
                 <span class="radio-visual-expandible"></span>
-                <span class="texto-opcion-expandible fw-semibold">
+                <span class="texto-opcion-expandible">
                   Sí planeo embrazarme y  me interesa cobertura parcial (consulta prenatal, ultrasonidos, etc.).
                 </span>
 
@@ -736,8 +737,8 @@
 
   <script>
     window.addEventListener('DOMContentLoaded', () => {
-      const step = 2;
-      const substep = 1;
+      const step = 4;
+      const substep = 0;
 
       goToStep(step); // Muestra el paso 2
       if (step === 2) {
