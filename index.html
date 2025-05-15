@@ -61,7 +61,7 @@
         </li>
         <li class="nav-item">
           <a href="#" class="nav-link" data-step="5">
-            <span class="material-symbols-outlined icon-status invisible">arrow_right_alt</span>
+            <span class="material-symbols-outlined icon-status invisible">check_circle</span>
             <span class="nav-label">Solicitud</span>
           </a>
         </li>
@@ -366,7 +366,7 @@
                     Regresar
                   </button>
 
-                  <button class="btn-siguiente btn-next-substep" onclick="goToStep(4)">
+                  <button class="btn-siguiente " onclick="goToStep(4)">
                     Siguiente
                   </button>
                 </div>
@@ -676,6 +676,7 @@
       }
 
       // Sidebar
+      // Sidebar
       document.querySelectorAll('#sidebarNav .nav-link').forEach(link => {
         const linkStep = parseInt(link.dataset.step);
         const icon = link.querySelector('.icon-status');
@@ -684,7 +685,7 @@
 
         if (linkStep === step) {
           link.classList.add('active');
-          icon.textContent = 'arrow_right_alt';
+          icon.textContent = (step === 5) ? 'check_circle' : 'arrow_right_alt';
         } else if (linkStep <= maxStep) {
           link.classList.add('completed');
           icon.textContent = 'check_circle';
@@ -693,6 +694,7 @@
           icon.classList.add('invisible');
         }
       });
+
 
       // Progress bar
       const progress = ((step - 1) / 4) * 100;
@@ -764,6 +766,7 @@
       });
     });
   </script>
+
   <script src="js/bootstrap.bundle.min.js"></script>
   <!-- script para posicionarme entre elementos
   <script>
