@@ -601,6 +601,12 @@ h1 {
   color: rgba(51, 51, 51, 0.5);
 }
 
+.custom-input:focus {
+  border: 2px solid #000095;
+  outline: none;
+}
+
+
 .btn-secondary-custom {
   background-color: #C4C4C4;
   color: white;
